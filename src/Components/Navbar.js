@@ -1,13 +1,10 @@
 import React from 'react'
 import { Fragment, useState } from 'react'
-import { Dialog, Disclosure,Menu, Popover, Transition } from '@headlessui/react'
+import { Dialog,Menu, Transition } from '@headlessui/react'
 import {
-  ArrowPathIcon,
+
   Bars3Icon,
-  ChartPieIcon,
-  CursorArrowRaysIcon,
-  FingerPrintIcon,
-  SquaresPlusIcon,
+ 
   XMarkIcon,
   BellIcon,
 } from '@heroicons/react/24/outline'
