@@ -1,9 +1,21 @@
+"use client"
 import React, { Fragment, useRef, useState } from 'react';
 import { Dialog, Transition } from '@headlessui/react'
 import { BellAlertIcon,ArrowSmallRightIcon } from '@heroicons/react/24/outline'
 import { CloudArrowUpIcon, LockClosedIcon, ServerIcon } from '@heroicons/react/20/solid';
 import { CalendarDaysIcon, HandRaisedIcon } from '@heroicons/react/24/outline'
-import Navbar from '@/Components/Navbar'
+import Navbar from '@/Components/Navbar';
+import Image from 'next/image';
+import Demo1 from '../../public/Demo1.webp';
+import Demo2 from '../../public/Demo 2.webp';
+import Demo3 from '../../public/Demo 3.webp';
+import Demo4 from '../../public/Demo 4.webp';
+import Live from '../../public/LivePreview.webp';
+import Month from '../../public/MonthPreview.webp';
+import Payment from '../../public/PaymentPage.webp';
+import CoverImg from '../../public/CoverImage.webp';
+
+import { motion, AnimatePresence } from 'framer-motion';
 const index = () => {
   const [open, setOpen] = useState(false)
   const cancelButtonRef = useRef(null)
@@ -71,40 +83,67 @@ const index = () => {
   return (
     <div>
       <Navbar/>
-      <div className="bg-white">
-      <div className="mx-auto  first-letter:">
-        <div className="relative isolate overflow-hidden bg-gray-900 px-6 pt-16 sm:px-16 md:pt-24 lg:flex lg:gap-x-20 lg:px-24 lg:pt-0">
-          
-          <div className="mx-auto max-w-md text-center lg:mx-0 lg:flex-auto lg:py-32 lg:text-left">
-            <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
-              Boost your productivity.
-              <br />
+
+
+
+
+    {/* Header */}
+
+    <div className=" min-h-screen w-full bg-gradient-to-b from-white via-green-200 to-white grid place-items-center p-20 font-header grid-cols-4 relative z-10">
+        <div className="mesh1 hidden md:block opacity-80 w-96 h-96 absolute top-6 right-10 z-8 blur-3xl "></div>
+
+        <div className=" flex flex-col items-start col-span-4 sm:col-span-2 gap-6 relative z-10 opacity-100">
+          <motion.div
+            initial={{ x: "-100vw", opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{ delay: 0.1, duration: 0.5, type: "tween" }}
+            className="flex flex-col gap-4 sm:gap-6 md:gap-8 lg:gap-10"
+          >
+            <p className="text-3xl sm:text-4xl lg:text-[40px] xl:text-[45px] font-bold text-black">
+            Boost your productivity.
+            </p>
+            <p className="text-3xl xl:text-[45px] font-bold">
+              <span className="text-5xl  lg:text-[50px] xl:text-[55px] font-[800] bg-clip-text text-transparent bg-green-700">
               Start using our app today.
-            </h2>
-            <p className="mt-6 text-lg leading-8 text-gray-300">
+              </span>
+            </p>
+            <p className="mt-6 text-lg leading-8 text-gray-900">
             This enables you to get on top of your electricity bill, reduce your carbon footprint, make your home safer, monitor elderly relatives, and much more…
             </p>
-            <div className="mt-10 flex items-center justify-center gap-x-6 lg:justify-start">
-              <a
-                href="#"
-                className="rounded-md bg-white px-6 py-2.5 text-sm font-semibold text-gray-900 shadow-sm hover:bg-gray-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
-              >
-                Get started
-              </a>
-             
-            </div>
-          </div>
-          <div className="relative mt-16 h-80 lg:mt-8">
-            {/* <img
-              className="absolute left-0 top-0 w-[46rem] rounded-2xl h-[29rem] max-w-none  bg-white/5 ring-1 ring-white/10"
-              src={HeroImg}
-              alt="App screenshot"
-   
-            /> */}
-          </div>
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.2, duration: 0.5, type: "spring" }}
+          
+            className="flex items-center justify-center gap-3 mt-4"
+          >
+            <button className="bg-green-600 text-white text-normal md:text-xl font-semibold p-2 sm:p-3 md:p-4 rounded-md  hover:bg-green-700">
+              Contact Us
+            </button>
+            <button className="border border-green-600 p-2 sm:p-3 md:p-4 text-normal md:text-xl font-semibold text-green-900 rounded-md  hover:bg-green-700 hover:text-white">
+              <a href="/Request">Request Demo</a>
+              
+            </button>
+          </motion.div>
         </div>
+        <motion.div
+          layout
+          initial={{ y: -10 }}
+          animate={{ y: 10 }}
+          transition={{ repeat: Infinity, repeatType: "reverse", duration: 3 }}
+          AnimatePresence
+         
+          className="relative sm:col-span-2 col-span-4  sm:mr-[-30px] "
+        >
+          <Image
+            className=" relative z-10"
+            src={CoverImg}
+            
+          />
+        </motion.div>
+        {/* <Image className="absolute" src="/oil.png" width={1000} height={500} /> */}
       </div>
-    </div>
 
      {/* Next content */}
      <div className='relative'>
@@ -144,12 +183,12 @@ const index = () => {
             </div>
             </div>
           </div>
-          {/* <img
-            src={LivePreview}
+          <Image
+            src={Live}
             alt="Product screenshot"
             className="w-[19rem] max-w-none rounded-xl shadow-xl ring-1 ring-gray-400/10 md:-ml-4 lg:-ml-0"
             
-          /> */}
+          />
         </div>
       </div>
     </div>
@@ -158,11 +197,11 @@ const index = () => {
     <div className="relative overflow-hidden  bg-white py-5  sm:py-8">
       <div className="mx-auto max-w-5xl px-6 lg:px-8">
         <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-2 gap-y-16 sm:gap-y-20 sm:grid-cols-2 lg:mx-0 lg:max-w-none md:grid-cols-2">
-        {/* <img
-            src={MonthPreview}
+        <Image
+            src={Month}
             alt="Product screenshot"
             className="w-[18rem]  rounded-xl shadow-xl ring-1 ring-gray-400/10  md:-ml-4 lg:-ml-0"/>
-             */}
+            
           <div className="lg:pr-8 lg:pt-4">
             <div className="lg:max-w-2xl">
               <h2 className="text-base font-semibold leading-7 text-indigo-600">Month-Review</h2>
@@ -221,12 +260,12 @@ const index = () => {
               </dl>
             </div>
           </div>
-          {/* <img
-            src={PaymentPage}
+          <Image
+            src={Payment}
             alt="Product screenshot"
             className="w-[19rem] max-w-none rounded-xl shadow-xl ring-1 ring-gray-400/10 md:-ml-4 lg:-ml-0"
             
-          /> */}
+          />
         </div>
       </div>
     </div>
@@ -244,13 +283,13 @@ const index = () => {
       <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
        
 
-        {/* <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
+        <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
          
             <div className="group relative">
               <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
-                <img
-                  src={demo1}
-                 
+                <Image
+                  src={Demo1}
+                 alt="Tools"
                   className="h-full w-full object-cover object-center lg:h-full lg:w-full"
                 />
               </div>
@@ -258,9 +297,9 @@ const index = () => {
             </div>
             <div className="group relative">
               <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
-                <img
-                  src={demo2}
-                 
+                <Image
+                  src={Demo2}
+                 alt='Appliances'
                   className="h-full w-full object-cover object-center lg:h-full lg:w-full"
                 />
               </div>
@@ -268,9 +307,9 @@ const index = () => {
             </div>
             <div className="group relative">
               <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
-                <img
-                  src={demo3}
-                 
+                <Image
+                  src={Demo3}
+                 alt='Customer Care'
                   className="h-full w-full object-cover object-center lg:h-full lg:w-full"
                 />
               </div>
@@ -278,16 +317,16 @@ const index = () => {
             </div>
             <div className="group relative">
               <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
-                <img
-                  src={demo4}
-                 
+                <Image
+                  src={Demo4 }
+                 alt='Message'
                   className="h-full w-full object-cover object-center lg:h-full lg:w-full"
                 />
               </div>
               
             </div>
          
-        </div> */}
+        </div>
       </div>
     </div>                
 
