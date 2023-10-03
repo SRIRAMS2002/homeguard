@@ -2,9 +2,7 @@ import React from 'react'
 import { Fragment, useState } from 'react'
 import { Dialog,Menu, Transition } from '@headlessui/react'
 import {
-
   Bars3Icon,
- 
   XMarkIcon,
   BellIcon,
 } from '@heroicons/react/24/outline'
