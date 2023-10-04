@@ -89,7 +89,7 @@ const index = () => {
 
     {/* Header */}
 
-    <div className=" min-h-screen w-full bg-gradient-to-b from-white via-green-200 to-white grid place-items-center p-20 font-header grid-cols-4 relative z-10">
+    <div className=" min-h-screen w-full bg-gradient-to-b from-white via-green-200 to-white grid place-items-center p-10 font-header grid-cols-4 relative z-10">
         <div className="mesh1 hidden md:block opacity-80 w-96 h-96 absolute top-6 right-10 z-8 blur-3xl "></div>
 
         <div className=" flex flex-col items-start col-span-4 sm:col-span-2 gap-6 relative z-10 opacity-100">
